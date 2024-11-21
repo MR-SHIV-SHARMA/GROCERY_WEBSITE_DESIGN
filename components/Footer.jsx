@@ -1,19 +1,19 @@
-import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import Logo from '../public/Footer_img/Logo.png';
-import f from '../public/Footer_img/f.png';
-import r from '../public/Footer_img/r.png';
-import $ from '../public/Footer_img/$.png';
-import Payment from '../public/Footer_img/Payment.png';
-import facebook from '../public/Footer_img/facebook.png';
-import instagram from '../public/Footer_img/instagram.png';
-import Linkedin from '../public/Footer_img/Linkedin.png';
-import twitter from '../public/Footer_img/twitter.png';
-import phone from '../public/Footer_img/phone.png';
-import mail from '../public/Footer_img/mail.png';
-import map from '../public/Footer_img/map.png';
-import clock from '../public/Footer_img/clock.png';
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import Logo from "../public/Footer_img/Logo.png";
+import f from "../public/Footer_img/f.png";
+import r from "../public/Footer_img/r.png";
+import $ from "../public/Footer_img/$.png";
+import Payment from "../public/Footer_img/Payment.png";
+import facebook from "../public/Footer_img/facebook.png";
+import instagram from "../public/Footer_img/instagram.png";
+import LinkedIn from "../public/Footer_img/LinkedIn.png";
+import twitter from "../public/Footer_img/twitter.png";
+import phone from "../public/Footer_img/phone.png";
+import mail from "../public/Footer_img/mail.png";
+import map from "../public/Footer_img/map.png";
+import clock from "../public/Footer_img/clock.png";
 
 function Footer() {
   return (
@@ -199,7 +199,7 @@ function Footer() {
           </div>
           <div className="bg-green-600 p-2 rounded-full">
             <Link href="#" className="text-gray-700 hover:text-green-500">
-              <Image src={Linkedin} alt="" />
+              <Image src={LinkedIn} alt="" />
             </Link>
           </div>
           <div className="bg-green-600 p-2 rounded-full">
