@@ -189,8 +189,8 @@ function Footer() {
       </div>
       <div className="border-t border-gray-300 mb-8 mt-12" />
       <footer className="mt-8 flex justify-between items-center pb-4">
-        <p className="text-gray-500">&copy; 2022, All rights reserved</p>
-        <Image src={Payment} alt="payment" />
+      <p className="text-gray-500">&copy; 2022, All rights reserved&rsquo;</p>
+      <Image src={Payment} alt="payment" />
         <div className="flex justify-center items-center space-x-5">
           <div className="bg-green-600 p-2 rounded-full">
             <Link href="#" className="text-gray-700 hover:text-green-500">
