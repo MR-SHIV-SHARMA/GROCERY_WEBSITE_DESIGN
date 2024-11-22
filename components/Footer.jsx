@@ -24,7 +24,7 @@ function Footer() {
           <div>
             <h1 className="font-semibold">Best Prices & Deals</h1>
             <p className="text-gray-400 text-sm">
-              Don't miss our daily amazing deals and prices
+              Don&apos;t miss our daily amazing deals and prices
             </p>
           </div>
         </div>
