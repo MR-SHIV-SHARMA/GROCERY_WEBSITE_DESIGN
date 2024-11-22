@@ -20,7 +20,7 @@ function Footer() {
     <div className="container mx-auto p-4 px-16">
       <div className="flex justify-between items-center space-x-32 pb-10 pt-20">
         <div className="flex justify-center items-center gap-4">
-          <Image src={$} />
+          <Image src={$} alt="money" />
           <div>
             <h1 className="font-semibold">Best Prices & Deals</h1>
             <p className="text-gray-400 text-sm">
@@ -29,7 +29,7 @@ function Footer() {
           </div>
         </div>
         <div className="flex justify-center items-center gap-4">
-          <Image src={r} />
+          <Image src={r} alt="refresh" />
           <div>
             <h1 className="font-semibold">Refundable</h1>
             <p className="text-gray-400 text-sm">
@@ -38,7 +38,7 @@ function Footer() {
           </div>
         </div>
         <div className="flex justify-center items-center gap-4">
-          <Image src={f} />
+          <Image src={f} alt="free delivery" />
           <div>
             <h1 className="font-semibold">Free delivery</h1>
             <p className="text-gray-400 text-sm">
@@ -51,7 +51,7 @@ function Footer() {
       <div className="flex flex-col md:flex-row justify-between items-start pt-8">
         <div className="space-y-4">
           <div className="flex">
-            <Image src={Logo} alt="" className="mr-2" />
+            <Image src={Logo} alt="logo" className="mr-2" />
             <div>
               <h1 className="text-2xl font-bold text-green-600">Groceyish</h1>
               <p className="text-gray-400 text-sm">GROCERY</p>
@@ -61,7 +61,7 @@ function Footer() {
             href="#"
             className="text-gray-700 hover:text-green-500 flex justify-start items-center gap-1"
           >
-            <Image src={map} alt="" />
+            <Image src={map} alt="map" />
             <p>
               <span className="text-black">Address</span>: 1762 School House
               Road
@@ -71,7 +71,7 @@ function Footer() {
             href="#"
             className="text-gray-700 hover:text-green-500 flex justify-start items-center gap-1"
           >
-            <Image src={phone} alt="" />
+            <Image src={phone} alt="phone" />
             <p>
               <span className="text-black">Call Us</span>: 1233-777
             </p>
@@ -80,7 +80,7 @@ function Footer() {
             href="#"
             className="text-gray-700 hover:text-green-500 flex justify-start items-center gap-1"
           >
-            <Image src={mail} alt="" />
+            <Image src={mail} alt="mail" />
             <p>
               <span className="text-black">Email</span>: groceyish@contact.com
             </p>
@@ -89,7 +89,7 @@ function Footer() {
             href="#"
             className="text-gray-700 hover:text-green-500 flex justify-center items-center gap-1"
           >
-            <Image src={clock} alt="" />
+            <Image src={clock} alt="clock" />
             <p>
               <span className="text-black">Work hours</span>: 8:00 - 20:00,
               Sunday - Thursday
@@ -190,26 +190,26 @@ function Footer() {
       <div className="border-t border-gray-300 mb-8 mt-12" />
       <footer className="mt-8 flex justify-between items-center pb-4">
         <p className="text-gray-500">&copy; 2022, All rights reserved</p>
-        <Image src={Payment} alt="first" />
+        <Image src={Payment} alt="payment" />
         <div className="flex justify-center items-center space-x-5">
           <div className="bg-green-600 p-2 rounded-full">
             <Link href="#" className="text-gray-700 hover:text-green-500">
-              <Image src={facebook} alt="" />
+              <Image src={facebook} alt="facebook" />
             </Link>
           </div>
           <div className="bg-green-600 p-2 rounded-full">
             <Link href="#" className="text-gray-700 hover:text-green-500">
-              <Image src={LinkedIn} alt="" />
+              <Image src={LinkedIn} alt="linkedin" />
             </Link>
           </div>
           <div className="bg-green-600 p-2 rounded-full">
             <Link href="#" className="text-gray-700 hover:text-green-500">
-              <Image src={instagram} alt="" />
+              <Image src={instagram} alt="instagram" />
             </Link>
           </div>
           <div className="bg-green-600 p-2 rounded-full">
             <Link href="#" className="text-gray-700 hover:text-green-500">
-              <Image src={twitter} alt="" />
+              <Image src={twitter} alt="twitter" />
             </Link>
           </div>
         </div>

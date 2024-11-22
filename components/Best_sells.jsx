@@ -248,13 +248,23 @@ function BestSells() {
               className="bg-gray-300 p-2 rounded-full cursor-pointer"
               onClick={handleScrollLeft}
             >
-              <Image src={arrow_left} alt="Scroll Left" />
+              <Image
+                src={arrow_left}
+                alt="Scroll Left"
+                width={16}
+                height={16}
+              />
             </div>
             <div
               className="bg-gray-300 p-2 rounded-full cursor-pointer"
               onClick={handleScrollRight}
             >
-              <Image src={arrow_right} alt="Scroll Right" />
+              <Image
+                src={arrow_right}
+                alt="Scroll Right"
+                width={16}
+                height={16}
+              />
             </div>
           </div>
         </div>

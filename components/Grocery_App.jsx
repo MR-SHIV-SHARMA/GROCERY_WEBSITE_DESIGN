@@ -1,10 +1,10 @@
-import React from 'react';
-import Image from 'next/image';
-import X_1 from '../public/groceyish_app_img/X_1.png';
-import X_2 from '../public/groceyish_app_img/X_2.png';
-import img10 from '../public/groceyish_app_img/img10.png';
-import img11 from '../public/groceyish_app_img/img11.png';
-import img12 from '../public/groceyish_app_img/img12.png';
+import React from "react";
+import Image from "next/image";
+import X_1 from "../public/groceyish_app_img/X_1.png";
+import X_2 from "../public/groceyish_app_img/X_2.png";
+import img10 from "../public/groceyish_app_img/img10.png";
+import img11 from "../public/groceyish_app_img/img11.png";
+import img12 from "../public/groceyish_app_img/img12.png";
 
 function Grocery_App() {
   return (
@@ -13,7 +13,7 @@ function Grocery_App() {
         <Image
           src={img10}
           className="absolute inset-0 w-full h-full object-cover"
-          alt="Background Image"
+          alt="Grocery App Background Image"
         />
         <div className="absolute inset-0 bg-teal-100 opacity-80"></div>
         <div className="relative flex justify-around items-center py-10">

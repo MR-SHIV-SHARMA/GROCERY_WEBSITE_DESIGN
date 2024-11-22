@@ -1,228 +1,228 @@
-'use client';
-import React, { useState } from 'react';
-import Image from 'next/image';
-import arrow_left from '../public/Explore_Categories_img/arrow_left.png';
-import arrow_right from '../public/Explore_Categories_img/arrow_right.png';
-import image_1 from '../public/Explore_Categories_img/image_1.png';
-import image_2 from '../public/Explore_Categories_img/image_2.png';
-import image_3 from '../public/Explore_Categories_img/image_3.png';
-import image_4 from '../public/Explore_Categories_img/image_4.png';
-import image_5 from '../public/Explore_Categories_img/image_5.png';
-import image_6 from '../public/Explore_Categories_img/image_6.png';
-import image_7 from '../public/Explore_Categories_img/image_7.png';
+"use client";
+import React, { useState } from "react";
+import Image from "next/image";
+import arrow_left from "../public/Explore_Categories_img/arrow_left.png";
+import arrow_right from "../public/Explore_Categories_img/arrow_right.png";
+import image_1 from "../public/Explore_Categories_img/image_1.png";
+import image_2 from "../public/Explore_Categories_img/image_2.png";
+import image_3 from "../public/Explore_Categories_img/image_3.png";
+import image_4 from "../public/Explore_Categories_img/image_4.png";
+import image_5 from "../public/Explore_Categories_img/image_5.png";
+import image_6 from "../public/Explore_Categories_img/image_6.png";
+import image_7 from "../public/Explore_Categories_img/image_7.png";
 
 // Sample JSON Data (With Categories)
 const categories = [
   {
     id: 1,
-    name: 'Peach',
+    name: "Peach",
     items: 20,
-    bgColor: 'bg-gray-400',
+    bgColor: "bg-gray-400",
     image: image_1,
-    category: 'Fruits',
+    category: "Fruits",
   },
   {
     id: 2,
-    name: 'Apple',
+    name: "Apple",
     items: 15,
-    bgColor: 'bg-red-400',
+    bgColor: "bg-red-400",
     image: image_2,
-    category: 'Fruits',
+    category: "Fruits",
   },
   {
     id: 3,
-    name: 'Orange',
+    name: "Orange",
     items: 25,
-    bgColor: 'bg-orange-400',
+    bgColor: "bg-orange-400",
     image: image_3,
-    category: 'Fruits',
+    category: "Fruits",
   },
   {
     id: 4,
-    name: 'Banana',
+    name: "Banana",
     items: 30,
-    bgColor: 'bg-yellow-400',
+    bgColor: "bg-yellow-400",
     image: image_4,
-    category: 'Fruits',
+    category: "Fruits",
   },
   {
     id: 5,
-    name: 'Carrot',
+    name: "Carrot",
     items: 10,
-    bgColor: 'bg-green-400',
+    bgColor: "bg-green-400",
     image: image_5,
-    category: 'Vegetables',
+    category: "Vegetables",
   },
   {
     id: 6,
-    name: 'Blueberry',
+    name: "Blueberry",
     items: 18,
-    bgColor: 'bg-blue-400',
+    bgColor: "bg-blue-400",
     image: image_6,
-    category: 'Fruits',
+    category: "Fruits",
   },
   {
     id: 7,
-    name: 'Chicken',
+    name: "Chicken",
     items: 12,
-    bgColor: 'bg-indigo-400',
+    bgColor: "bg-indigo-400",
     image: image_7,
-    category: 'Meat',
+    category: "Meat",
   },
   {
     id: 8,
-    name: 'Lettuce',
+    name: "Lettuce",
     items: 20,
-    bgColor: 'bg-gray-300',
+    bgColor: "bg-gray-300",
     image: image_1,
-    category: 'Vegetables',
+    category: "Vegetables",
   },
   {
     id: 9,
-    name: 'Tea',
+    name: "Tea",
     items: 15,
-    bgColor: 'bg-red-300',
+    bgColor: "bg-red-300",
     image: image_2,
-    category: 'Coffee & Teas',
+    category: "Coffee & Teas",
   },
   {
     id: 10,
-    name: 'Coffee',
+    name: "Coffee",
     items: 25,
-    bgColor: 'bg-orange-300',
+    bgColor: "bg-orange-300",
     image: image_3,
-    category: 'Coffee & Teas',
+    category: "Coffee & Teas",
   },
   {
     id: 11,
-    name: 'Beef',
+    name: "Beef",
     items: 40,
-    bgColor: 'bg-purple-400',
+    bgColor: "bg-purple-400",
     image: image_4,
-    category: 'Meat',
+    category: "Meat",
   },
   {
     id: 12,
-    name: 'Broccoli',
+    name: "Broccoli",
     items: 22,
-    bgColor: 'bg-green-300',
+    bgColor: "bg-green-300",
     image: image_5,
-    category: 'Vegetables',
+    category: "Vegetables",
   },
   {
     id: 13,
-    name: 'Strawberry',
+    name: "Strawberry",
     items: 35,
-    bgColor: 'bg-pink-400',
+    bgColor: "bg-pink-400",
     image: image_6,
-    category: 'Fruits',
+    category: "Fruits",
   },
   {
     id: 14,
-    name: 'Spinach',
+    name: "Spinach",
     items: 14,
-    bgColor: 'bg-teal-400',
+    bgColor: "bg-teal-400",
     image: image_7,
-    category: 'Vegetables',
+    category: "Vegetables",
   },
   {
     id: 15,
-    name: 'Lamb',
+    name: "Lamb",
     items: 28,
-    bgColor: 'bg-indigo-300',
+    bgColor: "bg-indigo-300",
     image: image_1,
-    category: 'Meat',
+    category: "Meat",
   },
   {
     id: 16,
-    name: 'Cucumber',
+    name: "Cucumber",
     items: 18,
-    bgColor: 'bg-green-500',
+    bgColor: "bg-green-500",
     image: image_2,
-    category: 'Vegetables',
+    category: "Vegetables",
   },
   {
     id: 17,
-    name: 'Raspberry',
+    name: "Raspberry",
     items: 20,
-    bgColor: 'bg-pink-500',
+    bgColor: "bg-pink-500",
     image: image_3,
-    category: 'Fruits',
+    category: "Fruits",
   },
   {
     id: 18,
-    name: 'Tomato',
+    name: "Tomato",
     items: 24,
-    bgColor: 'bg-red-500',
+    bgColor: "bg-red-500",
     image: image_4,
-    category: 'Vegetables',
+    category: "Vegetables",
   },
   {
     id: 19,
-    name: 'Turkey',
+    name: "Turkey",
     items: 16,
-    bgColor: 'bg-brown-400',
+    bgColor: "bg-brown-400",
     image: image_5,
-    category: 'Meat',
+    category: "Meat",
   },
   {
     id: 20,
-    name: 'Mango',
+    name: "Mango",
     items: 19,
-    bgColor: 'bg-yellow-500',
+    bgColor: "bg-yellow-500",
     image: image_6,
-    category: 'Fruits',
+    category: "Fruits",
   },
   {
     id: 21,
-    name: 'Celery',
+    name: "Celery",
     items: 23,
-    bgColor: 'bg-green-200',
+    bgColor: "bg-green-200",
     image: image_7,
-    category: 'Vegetables',
+    category: "Vegetables",
   },
   {
     id: 22,
-    name: 'Shrimp',
+    name: "Shrimp",
     items: 32,
-    bgColor: 'bg-orange-500',
+    bgColor: "bg-orange-500",
     image: image_1,
-    category: 'Meat',
+    category: "Meat",
   },
   {
     id: 23,
-    name: 'Avocado',
+    name: "Avocado",
     items: 15,
-    bgColor: 'bg-green-600',
+    bgColor: "bg-green-600",
     image: image_2,
-    category: 'Vegetables',
+    category: "Vegetables",
   },
   {
     id: 24,
-    name: 'Papaya',
+    name: "Papaya",
     items: 18,
-    bgColor: 'bg-yellow-300',
+    bgColor: "bg-yellow-300",
     image: image_3,
-    category: 'Fruits',
+    category: "Fruits",
   },
   {
     id: 25,
-    name: 'Fish',
+    name: "Fish",
     items: 26,
-    bgColor: 'bg-blue-600',
+    bgColor: "bg-blue-600",
     image: image_4,
-    category: 'Meat',
+    category: "Meat",
   },
 ];
 
 function Explore_Categories() {
   const [currentIndex, setCurrentIndex] = useState(0); // To track the visible cards
-  const [selectedCategory, setSelectedCategory] = useState('All'); // For filtering
+  const [selectedCategory, setSelectedCategory] = useState("All"); // For filtering
   const itemsPerPage = 7; // Number of cards visible at a time
 
   // Filtered data based on the selected category
   const filteredCategories =
-    selectedCategory === 'All'
+    selectedCategory === "All"
       ? categories
       : categories.filter((category) => category.category === selectedCategory);
 
@@ -251,7 +251,7 @@ function Explore_Categories() {
       <div className="flex justify-between px-24 py-6">
         <h1 className="font-bold text-3xl">Explore Categories</h1>
         <div className="flex space-x-6">
-          {['All', 'Vegetables', 'Fruits', 'Coffee & Teas', 'Meat'].map(
+          {["All", "Vegetables", "Fruits", "Coffee & Teas", "Meat"].map(
             (cat) => (
               <h1
                 key={cat}
@@ -260,7 +260,7 @@ function Explore_Categories() {
                   setCurrentIndex(0); // Reset to first page when category changes
                 }}
                 className={`cursor-pointer ${
-                  selectedCategory === cat ? 'text-green-500 font-semibold' : ''
+                  selectedCategory === cat ? "text-green-500 font-semibold" : ""
                 }`}
               >
                 {cat}
@@ -295,7 +295,7 @@ function Explore_Categories() {
               <div className="text-center">
                 <h1 className="text-lg font-semibold">{category.name}</h1>
                 <p className="text-sm text-gray-700">{category.items} items</p>
-              </div>{' '}
+              </div>{" "}
             </div>
           ))}
         </div>

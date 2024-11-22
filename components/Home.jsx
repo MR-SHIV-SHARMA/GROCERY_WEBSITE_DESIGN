@@ -1,9 +1,9 @@
-'use client';
-import React, { useState, useRef } from 'react';
-import Image from 'next/image';
-import Home_bg from '../public/Home_img/Home_bg.png';
-import li_send from '../public/Home_img/li_send.png';
-import Hreo_img from '../public/Home_img/Hreo_img.png';
+"use client";
+import React, { useState, useRef } from "react";
+import Image from "next/image";
+import Home_bg from "../public/Home_img/Home_bg.png";
+import li_send from "../public/Home_img/li_send.png";
+import Hreo_img from "../public/Home_img/Hreo_img.png";
 
 function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -13,16 +13,16 @@ function Home() {
     {
       id: 0,
       title: "Don't miss our daily",
-      subtitle: 'amazing deals.',
-      description: 'Save up to 60% off on your first order',
+      subtitle: "amazing deals.",
+      description: "Save up to 60% off on your first order",
       bgImage: Home_bg,
       heroImage: Hreo_img,
     },
     {
       id: 1,
-      title: 'Exclusive Offers Just for You',
-      subtitle: 'Limited Time Only.',
-      description: 'Shop now and get 50% off on all items',
+      title: "Exclusive Offers Just for You",
+      subtitle: "Limited Time Only.",
+      description: "Shop now and get 50% off on all items",
       bgImage: Home_bg,
       heroImage: Hreo_img,
     },
@@ -33,7 +33,7 @@ function Home() {
     setCurrentSlide(index);
     sliderRef.current.scrollTo({
       left: sliderRef.current.offsetWidth * index,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   };
 
@@ -42,7 +42,7 @@ function Home() {
     setCurrentSlide(index);
     sliderRef.current.scrollTo({
       left: sliderRef.current.offsetWidth * index,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   };
 
@@ -52,8 +52,8 @@ function Home() {
         className="w-full h-full relative overflow-hidden"
         ref={sliderRef}
         style={{
-          display: 'flex',
-          transition: 'scroll 1s ease',
+          display: "flex",
+          transition: "scroll 1s ease",
         }}
       >
         {/* Slides */}
@@ -63,8 +63,8 @@ function Home() {
             className="w-full h-full flex-shrink-0 relative"
             style={{
               backgroundImage: `url(${slide.bgImage.src})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
+              backgroundSize: "cover",
+              backgroundPosition: "center",
             }}
             onClick={() => handleSlideClick(index)} // Corrected this line by removing the comment inside JSX
           >
@@ -83,8 +83,8 @@ function Home() {
                 <div className="flex items-center bg-white overflow-hidden shadow-lg">
                   <Image
                     src={li_send}
-                    className="h-12 w-12 p-2"
                     alt="Send Icon"
+                    className="h-12 w-12 p-2"
                   />
                   <input
                     type="text"
@@ -116,9 +116,10 @@ function Home() {
             onClick={() => handleDotClick(index)}
             className={`h-3 w-3 rounded-full cursor-pointer ${
               currentSlide === index
-                ? 'bg-green-500'
-                : ' border-2 border-gray-700'
+                ? "bg-green-500"
+                : " border-2 border-gray-700"
             }`}
+            alt={slide.title}
           ></span>
         ))}
       </div>

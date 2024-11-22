@@ -1,139 +1,139 @@
-'use client';
-import React, { useState } from 'react';
-import Image from 'next/image';
-import arrow_left from '../public/Featured_Products_img/arrow_left.png';
-import arrow_right from '../public/Featured_Products_img/arrow_right.png';
-import Rectangle1 from '../public/Featured_Products_img/Rectangle1.png';
-import Rectangle2 from '../public/Featured_Products_img/Rectangle2.png';
-import Rectangle3 from '../public/Featured_Products_img/Rectangle3.png';
-import Rectangle4 from '../public/Featured_Products_img/Rectangle4.png';
-import Rectangle5 from '../public/Featured_Products_img/Rectangle5.png';
-import shopping_cart from '../public/Featured_Products_img/shopping_cart.png';
-import Star from '../public/Featured_Products_img/Star.png';
-import Black_Star from '../public/Featured_Products_img/Black_Star.png';
+"use client";
+import React, { useState } from "react";
+import Image from "next/image";
+import arrow_left from "../public/Featured_Products_img/arrow_left.png";
+import arrow_right from "../public/Featured_Products_img/arrow_right.png";
+import Rectangle1 from "../public/Featured_Products_img/Rectangle1.png";
+import Rectangle2 from "../public/Featured_Products_img/Rectangle2.png";
+import Rectangle3 from "../public/Featured_Products_img/Rectangle3.png";
+import Rectangle4 from "../public/Featured_Products_img/Rectangle4.png";
+import Rectangle5 from "../public/Featured_Products_img/Rectangle5.png";
+import shopping_cart from "../public/Featured_Products_img/shopping_cart.png";
+import Star from "../public/Featured_Products_img/Star.png";
+import Black_Star from "../public/Featured_Products_img/Black_Star.png";
 
 // Sample JSON Data (With Categories)
 const categories = [
   {
     id: 1,
-    name: 'Peach',
+    name: "Peach",
     items: 20,
     price: 1.25,
     originalPrice: 1.99,
     rating: 4.5,
     image: Rectangle1,
-    seller: 'Mr. Food',
-    category: 'Fruits',
+    seller: "Mr. Food",
+    category: "Fruits",
   },
   {
     id: 2,
-    name: 'Apple',
+    name: "Apple",
     items: 15,
     price: 1.5,
     originalPrice: 2.0,
     rating: 4.7,
     image: Rectangle2,
-    seller: 'Farm Fresh',
-    category: 'Fruits',
+    seller: "Farm Fresh",
+    category: "Fruits",
   },
   {
     id: 3,
-    name: 'Orange',
+    name: "Orange",
     items: 25,
     price: 1.1,
     originalPrice: 1.75,
     rating: 4.3,
     image: Rectangle3,
-    seller: 'Citrus Delight',
-    category: 'Fruits',
+    seller: "Citrus Delight",
+    category: "Fruits",
   },
   {
     id: 4,
-    name: 'Carrot',
+    name: "Carrot",
     items: 30,
     price: 0.75,
     originalPrice: 1.0,
     rating: 4.6,
     image: Rectangle4,
-    seller: 'Healthy Roots',
-    category: 'Vegetables',
+    seller: "Healthy Roots",
+    category: "Vegetables",
   },
   {
     id: 5,
-    name: 'Spinach',
+    name: "Spinach",
     items: 50,
     price: 1.2,
     originalPrice: 1.6,
     rating: 4.8,
     image: Rectangle5,
-    seller: 'Leafy Greens',
-    category: 'Vegetables',
+    seller: "Leafy Greens",
+    category: "Vegetables",
   },
   {
     id: 6,
-    name: 'Tea',
+    name: "Tea",
     items: 100,
     price: 3.5,
     originalPrice: 4.5,
     rating: 4.9,
     image: Rectangle1,
-    seller: 'Tea Time',
-    category: 'Coffee & Teas',
+    seller: "Tea Time",
+    category: "Coffee & Teas",
   },
   {
     id: 7,
-    name: 'Coffee',
+    name: "Coffee",
     items: 90,
     price: 5.0,
     originalPrice: 6.5,
     rating: 4.7,
     image: Rectangle2,
-    seller: 'Brewed Bliss',
-    category: 'Coffee & Teas',
+    seller: "Brewed Bliss",
+    category: "Coffee & Teas",
   },
   {
     id: 8,
-    name: 'Chicken Breast',
+    name: "Chicken Breast",
     items: 40,
     price: 6.0,
     originalPrice: 7.5,
     rating: 4.5,
     image: Rectangle3,
-    seller: 'Meat & More',
-    category: 'Meat',
+    seller: "Meat & More",
+    category: "Meat",
   },
   {
     id: 9,
-    name: 'Beef Steak',
+    name: "Beef Steak",
     items: 20,
     price: 10.0,
     originalPrice: 12.5,
     rating: 4.6,
     image: Rectangle4,
-    seller: 'Meat & More',
-    category: 'Meat',
+    seller: "Meat & More",
+    category: "Meat",
   },
   {
     id: 10,
-    name: 'Pineapple',
+    name: "Pineapple",
     items: 15,
     price: 2.5,
     originalPrice: 3.0,
     rating: 4.4,
     image: Rectangle5,
-    seller: 'Tropical Treats',
-    category: 'Fruits',
+    seller: "Tropical Treats",
+    category: "Fruits",
   },
 ];
 
 function Featured_Products() {
   const [currentIndex, setCurrentIndex] = useState(0); // To track the visible cards
-  const [selectedCategory, setSelectedCategory] = useState('All'); // For filtering
+  const [selectedCategory, setSelectedCategory] = useState("All"); // For filtering
   const itemsPerPage = 5; // Number of cards visible at a time
 
   // Filtered data based on the selected category
   const filteredCategories =
-    selectedCategory === 'All'
+    selectedCategory === "All"
       ? categories
       : categories.filter((category) => category.category === selectedCategory);
 
@@ -162,7 +162,7 @@ function Featured_Products() {
       <div className="flex justify-between px-24 py-6">
         <h1 className="font-bold text-3xl">Featured Products</h1>
         <div className="flex space-x-6">
-          {['All', 'Vegetables', 'Fruits', 'Coffee & Teas', 'Meat'].map(
+          {["All", "Vegetables", "Fruits", "Coffee & Teas", "Meat"].map(
             (cat) => (
               <h1
                 key={cat}
@@ -171,7 +171,7 @@ function Featured_Products() {
                   setCurrentIndex(0); // Reset to first page when category changes
                 }}
                 className={`cursor-pointer ${
-                  selectedCategory === cat ? 'text-green-500 font-semibold' : ''
+                  selectedCategory === cat ? "text-green-500 font-semibold" : ""
                 }`}
               >
                 {cat}
@@ -202,8 +202,8 @@ function Featured_Products() {
               key={category.id}
               className="flex flex-col items-center rounded-lg border-2 px-6 pt-6"
               style={{
-                width: '216px', // Fixed width
-                height: '280px', // Fixed height
+                width: "216px", // Fixed width
+                height: "280px", // Fixed height
               }}
             >
               {/* Centered Image */}
@@ -269,7 +269,11 @@ function Featured_Products() {
                     </p>
                   </div>
                   <button className="bg-green-200 py-1 px-6 rounded-md flex justify-center items-center gap-1">
-                    <Image src={shopping_cart} className="h-6 w-6" />
+                    <Image
+                      src={shopping_cart}
+                      className="h-6 w-6"
+                      alt="Shopping Cart"
+                    />
                     <p className="text-green-500 text-sm">Add</p>
                   </button>
                 </div>

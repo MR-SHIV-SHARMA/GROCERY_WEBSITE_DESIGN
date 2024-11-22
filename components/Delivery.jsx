@@ -13,7 +13,7 @@ function Delivery() {
         <Image
           src={Rectangle12}
           className="absolute inset-0 w-full h-full object-cover"
-          alt="Background Image"
+          alt="Delivery Background Image"
         />
 
         {/* Semi-transparent Background */}
@@ -35,7 +35,7 @@ function Delivery() {
               <Image src={arrow_right} alt="Arrow Icon" className="ml-2" />
             </button>
           </div>
-          <Image src={Offer1_img} />
+          <Image src={Offer1_img} alt="Offer 1 Image" />
         </div>
       </div>
       <div className="relative">
@@ -43,7 +43,7 @@ function Delivery() {
         <Image
           src={Rectangle12}
           className="absolute inset-0 w-full h-full object-cover"
-          alt="Background Image"
+          alt="Delivery Background Image"
         />
 
         {/* Semi-transparent Background */}
@@ -64,7 +64,7 @@ function Delivery() {
               <Image src={arrow_right} alt="Arrow Icon" className="ml-2" />
             </button>
           </div>
-          <Image src={Offer2_img} />
+          <Image src={Offer2_img} alt="Offer 2 Image" />
         </div>
       </div>
     </div>
@@ -72,3 +72,4 @@ function Delivery() {
 }
 
 export default Delivery;
+
