@@ -100,7 +100,10 @@ function Navbar() {
 
         <div className="flex justify-center items-center gap-2">
           <Link href="/cart">
-            <div className="flex items-center gap-2">
+            <div
+              className="flex items-center gap-2"
+              onClick={() => setCartTotal(likes + 1)}
+            >
               <div className="relative">
                 <Image src={shopping_cart} alt="shopping cart icon" />
                 <span className="absolute bottom-4 -right-1 bg-red-500 text-white text-xs font-mono rounded-full p-0.5 flex justify-center items-center">
