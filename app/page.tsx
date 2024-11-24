@@ -7,7 +7,6 @@ import Grocery_App from "../components/Grocery_App";
 import Best_sells from "../components/Best_sells";
 import Top_Sells from "../components/Top_Sells";
 import Footer from "../components/Footer";
-import { lstat } from "fs";
 
 function page() {
   return (
