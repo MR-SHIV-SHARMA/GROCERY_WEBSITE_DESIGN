@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import arrow_left from "../public/Featured_Products_img/arrow_left.png";
 import arrow_right from "../public/Featured_Products_img/arrow_right.png";
@@ -129,7 +129,31 @@ const categories = [
 function Featured_Products() {
   const [currentIndex, setCurrentIndex] = useState(0); // To track the visible cards
   const [selectedCategory, setSelectedCategory] = useState("All"); // For filtering
-  const itemsPerPage = 5; // Number of cards visible at a time
+  const [itemsPerPage, setItemsPerPage] = useState(""); // Default items per page
+
+  // Adjust items per page based on screen size
+  useEffect(() => {
+    const updateItemsPerPage = () => {
+      if (window.innerWidth >= 1280) {
+        setItemsPerPage(5); // 5 items per page on large screens (laptops/desktops)
+      } else if (window.innerWidth >= 1024) {
+        setItemsPerPage(4); // 5 items per page on large screens (laptops/desktops)
+      } else if (window.innerWidth >= 768) {
+        setItemsPerPage(3); // 4 items per page on medium screens (tablets)
+      } else if (window.innerWidth >= 576) {
+        setItemsPerPage(2); // 2 items per page on small screens (mobiles)
+      } else if (window.innerWidth >= 320) {
+        setItemsPerPage(1); // 2 items per page on small screens (mobiles)
+      }
+    };
+
+    updateItemsPerPage(); // Initial call
+    window.addEventListener("resize", updateItemsPerPage); // Update on window resize
+
+    return () => {
+      window.removeEventListener("resize", updateItemsPerPage); // Cleanup on unmount
+    };
+  }, []);
 
   // Filtered data based on the selected category
   const filteredCategories =
@@ -159,9 +183,9 @@ function Featured_Products() {
   return (
     <div className="pt-6">
       {/* Header Section */}
-      <div className="flex justify-between px-24 py-6">
+      <div className="flex justify-between px-6 xl:px-24 py-6">
         <h1 className="font-bold text-3xl">Featured Products</h1>
-        <div className="flex space-x-6">
+        <div className="hidden md:flex space-x-6">
           {["All", "Vegetables", "Fruits", "Coffee & Teas", "Meat"].map(
             (cat) => (
               <h1
@@ -179,13 +203,34 @@ function Featured_Products() {
             )
           )}
         </div>
+
+        {/* Dropdown for smaller screens */}
+        <div className="md:hidden">
+          <select
+            className="cursor-pointer p-2 bg-white border border-gray-300 rounded-md"
+            onChange={(e) => {
+              const selected = e.target.value;
+              setSelectedCategory(selected);
+              setCurrentIndex(0); // Reset to first page when category changes
+            }}
+            value={selectedCategory}
+          >
+            {["All", "Vegetables", "Fruits", "Coffee & Teas", "Meat"].map(
+              (cat) => (
+                <option key={cat} value={cat}>
+                  {cat}
+                </option>
+              )
+            )}
+          </select>
+        </div>
       </div>
 
       {/* Categories Section */}
-      <div className="flex justify-between items-center">
+      <div className="flex justify-around items-center">
         {/* Left Arrow */}
         <div
-          className="cursor-pointer justify-center items-center ml-6"
+          className="cursor-pointer justify-center items-center"
           onClick={handleScrollLeft}
         >
           <Image
@@ -284,7 +329,7 @@ function Featured_Products() {
 
         {/* Right Arrow */}
         <div
-          className="cursor-pointer justify-center items-center mr-6"
+          className="cursor-pointer justify-center items-center"
           onClick={handleScrollRight}
         >
           <Image

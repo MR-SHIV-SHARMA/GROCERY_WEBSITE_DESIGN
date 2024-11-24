@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import arrow_left from "../public/Explore_Categories_img/arrow_left.png";
 import arrow_right from "../public/Explore_Categories_img/arrow_right.png";
@@ -218,7 +218,35 @@ const categories = [
 function Explore_Categories() {
   const [currentIndex, setCurrentIndex] = useState(0); // To track the visible cards
   const [selectedCategory, setSelectedCategory] = useState("All"); // For filtering
-  const itemsPerPage = 7; // Number of cards visible at a time
+  const [itemsPerPage, setItemsPerPage] = useState(""); // Number of cards visible at a time
+
+  // Set the number of items per page based on the screen size
+  useEffect(() => {
+    const updateItemsPerPage = () => {
+      if (window.innerWidth >= 1280) {
+        setItemsPerPage(7);
+      } else if (window.innerWidth >= 1024) {
+        setItemsPerPage(5); // Desktop (Large screens)
+      } else if (window.innerWidth >= 768) {
+        setItemsPerPage(4); // Tablet (Medium screens)
+      } else if (window.innerWidth >= 480) {
+        setItemsPerPage(3); // Small tablet or large mobile
+      } else if (window.innerWidth >= 425) {
+        setItemsPerPage(2); // Mobile (Small screens)
+      } else if (window.innerWidth >= 320) {
+        setItemsPerPage(1); // Mobile (Small screens)
+      }
+    };
+
+    // Update items per page on component mount and when window resizes
+    updateItemsPerPage();
+    window.addEventListener("resize", updateItemsPerPage);
+
+    // Cleanup listener on component unmount
+    return () => {
+      window.removeEventListener("resize", updateItemsPerPage);
+    };
+  }, []);
 
   // Filtered data based on the selected category
   const filteredCategories =
@@ -248,33 +276,60 @@ function Explore_Categories() {
   return (
     <div className="pt-6">
       {/* Header Section */}
-      <div className="flex justify-between px-24 py-6">
-        <h1 className="font-bold text-3xl">Explore Categories</h1>
-        <div className="flex space-x-6">
-          {["All", "Vegetables", "Fruits", "Coffee & Teas", "Meat"].map(
-            (cat) => (
-              <h1
-                key={cat}
-                onClick={() => {
-                  setSelectedCategory(cat);
-                  setCurrentIndex(0); // Reset to first page when category changes
-                }}
-                className={`cursor-pointer ${
-                  selectedCategory === cat ? "text-green-500 font-semibold" : ""
-                }`}
-              >
-                {cat}
-              </h1>
-            )
-          )}
+      <div className="flex justify-between px-2 sm:px-6 xl:px-24 py-6 bg-gray-50 rounded-lg">
+        <h1 className="font-bold text-2xl md:text-3xl text-gray-800">
+          Explore Categories
+        </h1>
+        <div className="flex space-x-6 items-center">
+          {/* Horizontal list for larger screens */}
+          <div className="hidden md:flex space-x-6">
+            {["All", "Vegetables", "Fruits", "Coffee & Teas", "Meat"].map(
+              (cat) => (
+                <h1
+                  key={cat}
+                  onClick={() => {
+                    setSelectedCategory(cat);
+                    setCurrentIndex(0);
+                  }}
+                  className={`cursor-pointer text-lg font-medium text-gray-700 hover:text-green-500 transition-colors duration-200 ${
+                    selectedCategory === cat
+                      ? "text-green-500 font-semibold"
+                      : ""
+                  }`}
+                >
+                  {cat}
+                </h1>
+              )
+            )}
+          </div>
+
+          {/* Dropdown for smaller screens */}
+          <div className="md:hidden">
+            <select
+              onChange={(e) => {
+                setSelectedCategory(e.target.value);
+                setCurrentIndex(0);
+              }}
+              value={selectedCategory}
+              className="cursor-pointer text-gray-700 py-2 px-4 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-150"
+            >
+              {["All", "Vegetables", "Fruits", "Coffee & Teas", "Meat"].map(
+                (cat) => (
+                  <option key={cat} value={cat} className="p-2">
+                    {cat}
+                  </option>
+                )
+              )}
+            </select>
+          </div>
         </div>
       </div>
 
       {/* Categories Section */}
-      <div className="flex justify-between items-center">
+      <div className="flex justify-around items-center">
         {/* Left Arrow */}
         <div
-          className="cursor-pointer justify-center items-center ml-6"
+          className="cursor-pointer justify-center items-center"
           onClick={handleScrollLeft}
         >
           <Image
@@ -302,7 +357,7 @@ function Explore_Categories() {
 
         {/* Right Arrow */}
         <div
-          className="cursor-pointer justify-center items-center mr-6"
+          className="cursor-pointer justify-center items-center"
           onClick={handleScrollRight}
         >
           <Image

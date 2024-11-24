@@ -47,7 +47,7 @@ function Home() {
   };
 
   return (
-    <div className="relative w-full h-[500px]">
+    <div className="relative w-full h-full">
       <div
         className="w-full h-full relative overflow-hidden"
         ref={sliderRef}
@@ -71,38 +71,35 @@ function Home() {
             {/* Background color overlay */}
             <div className="absolute inset-0 bg-teal-200 bg-opacity-75"></div>
             {/* Slide Content */}
-            <div className="relative z-20 flex justify-between items-center h-full pl-24">
-              <div className="flex flex-col items-start">
-                <h1 className="text-5xl font-mono font-semibold">
+            <div className="relative z-20 sm:flex justify-between items-center h-full pl-2 sm:pl-8 lg:pl-24">
+              {/* Hero Image */}
+              <div className="order-first sm:order-last">
+                <Image
+                  src={slide.heroImage}
+                  alt="Hero Image"
+                  className="relative z-30"
+                />
+              </div>
+              <div className="flex flex-col items-start mb-10 sm:mb-0">
+                <h1 className="text-3xl lg:text-5xl font-mono font-semibold">
                   <span className="block">{slide.title}</span>
                   <span className="block">{slide.subtitle}</span>
                 </h1>
-                <p className="py-8 text-gray-800 font-medium">
+                <p className="py-2 sm:py-4 lg:py-8 text-gray-800 text-base lg:text-lg lg:font-medium">
                   {slide.description}
                 </p>
-                <div className="flex items-center bg-white overflow-hidden shadow-lg">
-                  <Image
-                    src={li_send}
-                    alt="Send Icon"
-                    className="h-12 w-12 p-2"
-                  />
+                <div className="flex items-center bg-white shadow-lg">
+                  <Image src={li_send} alt="Send Icon" className=" ml-2" />
                   <input
                     type="text"
                     placeholder="Enter your email address"
-                    className="px-4 py-2 outline-none flex-grow"
+                    className="pl-4 outline-none flex-grow text-xs sm:text-base"
                   />
-                  <button className="bg-green-600 text-white px-6 py-4">
+                  <button className="bg-green-600 text-white text-sm sm:text-base px-3 lg:px-6 py-2 lg:py-4">
                     Subscribe
                   </button>
                 </div>
               </div>
-
-              {/* Hero Image */}
-              <Image
-                src={slide.heroImage}
-                alt="Hero Image"
-                className="relative z-30"
-              />
             </div>
           </div>
         ))}

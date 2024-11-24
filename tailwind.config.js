@@ -9,7 +9,15 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        xs: "425px", // => @media (min-width: 576px) { ... }
+        "2xs": "576px", // => @media (min-width: 576px) { ... }
+        // 'md': '768px',  // => @media (min-width: 768px) { ... }
+        // 'lg': '992px',  // => @media (min-width: 992px) { ... }
+        "2xl": "1280px", // => @media (min-width: 1200px) { ... }
+      },
+    },
   },
   plugins: [],
 };

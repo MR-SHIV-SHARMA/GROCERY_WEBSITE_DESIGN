@@ -1,26 +1,26 @@
-'use client';
-import React, { useState } from 'react';
-import Image from 'next/image';
-import arrow_left from '../public/best_sells_img/arrow_left.png';
-import arrow_right from '../public/best_sells_img/arrow_right.png';
-import Star from '../public/best_sells_img/Star.png';
-import Black_Star from '../public/best_sells_img/Black_Star.png';
-import shopping_cart_white from '../public/best_sells_img/shopping_cart_white.png';
-import Rectangle12 from '../public/best_sells_img/Rectangle12.png';
+"use client";
+import React, { useState } from "react";
+import Image from "next/image";
+import arrow_left from "../public/best_sells_img/arrow_left.png";
+import arrow_right from "../public/best_sells_img/arrow_right.png";
+import Star from "../public/best_sells_img/Star.png";
+import Black_Star from "../public/best_sells_img/Black_Star.png";
+import shopping_cart_white from "../public/best_sells_img/shopping_cart_white.png";
+import Rectangle12 from "../public/best_sells_img/Rectangle12.png";
 
 // Updated JSON data with filter attributes
 const categories = [
   {
     id: 1,
-    name: 'Coffe 1kg',
+    name: "Coffe 1kg",
     totalItems: 50,
     remainingItems: 20,
     price: 1.25,
     originalPrice: 1.99,
     rating: 4.5,
-    image: '/best_sells_img/img1.png',
-    seller: 'Mr. Food',
-    category: 'Fruits',
+    image: "/best_sells_img/img1.png",
+    seller: "Mr. Food",
+    category: "Fruits",
     featured: true,
     popular: false,
     new: true,
@@ -29,15 +29,15 @@ const categories = [
   },
   {
     id: 2,
-    name: 'Halal Sausage 350g',
+    name: "Halal Sausage 350g",
     totalItems: 40,
     remainingItems: 25,
     price: 1.5,
     originalPrice: 2.0,
     rating: 4.7,
-    image: '/best_sells_img/img2.png',
-    seller: 'Farm Fresh',
-    category: 'Fruits',
+    image: "/best_sells_img/img2.png",
+    seller: "Farm Fresh",
+    category: "Fruits",
     featured: false,
     popular: true,
     new: false,
@@ -46,15 +46,15 @@ const categories = [
   },
   {
     id: 3,
-    name: 'Green Tea 250g',
+    name: "Green Tea 250g",
     totalItems: 60,
     remainingItems: 30,
     price: 1.1,
     originalPrice: 1.75,
     rating: 4.3,
-    image: '/best_sells_img/img3.png',
-    seller: 'Citrus Delight',
-    category: 'Fruits',
+    image: "/best_sells_img/img3.png",
+    seller: "Citrus Delight",
+    category: "Fruits",
     featured: true,
     popular: true,
     new: true,
@@ -63,15 +63,15 @@ const categories = [
   },
   {
     id: 4,
-    name: 'Onion 1kg',
+    name: "Onion 1kg",
     totalItems: 80,
     remainingItems: 55,
     price: 0.75,
     originalPrice: 1.0,
     rating: 4.6,
-    image: '/best_sells_img/img4.png',
-    seller: 'Healthy Roots',
-    category: 'Vegetables',
+    image: "/best_sells_img/img4.png",
+    seller: "Healthy Roots",
+    category: "Vegetables",
     featured: false,
     popular: true,
     new: false,
@@ -80,15 +80,15 @@ const categories = [
   },
   {
     id: 5,
-    name: 'Apple 1kg',
+    name: "Apple 1kg",
     totalItems: 100,
     remainingItems: 80,
     price: 2.5,
     originalPrice: 3.0,
     rating: 4.8,
-    image: '/best_sells_img/img5.png',
-    seller: 'Fresh Fruits',
-    category: 'Fruits',
+    image: "/best_sells_img/img5.png",
+    seller: "Fresh Fruits",
+    category: "Fruits",
     featured: true,
     popular: false,
     new: true,
@@ -97,15 +97,15 @@ const categories = [
   },
   {
     id: 6,
-    name: 'Carrot 1kg',
+    name: "Carrot 1kg",
     totalItems: 60,
     remainingItems: 40,
     price: 1.2,
     originalPrice: 1.5,
     rating: 4.0,
-    image: '/best_sells_img/img6.png',
-    seller: 'Green Farms',
-    category: 'Vegetables',
+    image: "/best_sells_img/img6.png",
+    seller: "Green Farms",
+    category: "Vegetables",
     featured: false,
     popular: true,
     new: false,
@@ -114,15 +114,15 @@ const categories = [
   },
   {
     id: 7,
-    name: 'Banana 1kg',
+    name: "Banana 1kg",
     totalItems: 120,
     remainingItems: 100,
     price: 1.0,
     originalPrice: 1.5,
     rating: 4.6,
-    image: '/best_sells_img/img7.png',
-    seller: 'Tropical Fresh',
-    category: 'Fruits',
+    image: "/best_sells_img/img7.png",
+    seller: "Tropical Fresh",
+    category: "Fruits",
     featured: true,
     popular: true,
     new: true,
@@ -131,15 +131,15 @@ const categories = [
   },
   {
     id: 8,
-    name: 'Spinach 500g',
+    name: "Spinach 500g",
     totalItems: 50,
     remainingItems: 35,
     price: 1.5,
     originalPrice: 2.0,
     rating: 4.4,
-    image: '/best_sells_img/img8.png',
-    seller: 'Healthy Greens',
-    category: 'Vegetables',
+    image: "/best_sells_img/img8.png",
+    seller: "Healthy Greens",
+    category: "Vegetables",
     featured: false,
     popular: false,
     new: false,
@@ -148,15 +148,15 @@ const categories = [
   },
   {
     id: 9,
-    name: 'Tomato 1kg',
+    name: "Tomato 1kg",
     totalItems: 80,
     remainingItems: 60,
     price: 1.0,
     originalPrice: 1.3,
     rating: 4.7,
-    image: '/best_sells_img/img9.png',
-    seller: 'Farm Fresh',
-    category: 'Vegetables',
+    image: "/best_sells_img/img9.png",
+    seller: "Farm Fresh",
+    category: "Vegetables",
     featured: true,
     popular: true,
     new: true,
@@ -165,15 +165,15 @@ const categories = [
   },
   {
     id: 10,
-    name: 'Lemon 500g',
+    name: "Lemon 500g",
     totalItems: 50,
     remainingItems: 30,
     price: 1.75,
     originalPrice: 2.0,
     rating: 4.2,
-    image: '/best_sells_img/img10.png',
-    seller: 'Citrus Delight',
-    category: 'Fruits',
+    image: "/best_sells_img/img10.png",
+    seller: "Citrus Delight",
+    category: "Fruits",
     featured: false,
     popular: true,
     new: false,
@@ -184,15 +184,15 @@ const categories = [
 
 function BestSells() {
   const [currentIndex, setCurrentIndex] = useState(0); // To track the visible cards
-  const [selectedFilter, setSelectedFilter] = useState('All'); // For filtering
+  const [selectedFilter, setSelectedFilter] = useState("All"); // For filtering
   const itemsPerPage = 4; // Number of cards visible at a time
 
   // Filter the categories based on the selected filter
   const filteredCategories = categories.filter((item) => {
-    if (selectedFilter === 'All') return true;
-    if (selectedFilter === 'Featured') return item.featured;
-    if (selectedFilter === 'Popular') return item.popular;
-    if (selectedFilter === 'New') return item.new;
+    if (selectedFilter === "All") return true;
+    if (selectedFilter === "Featured") return item.featured;
+    if (selectedFilter === "Popular") return item.popular;
+    if (selectedFilter === "New") return item.new;
     return true;
   });
 
@@ -217,18 +217,18 @@ function BestSells() {
 
   return (
     <>
-      <div className="px-24 mt-20">
-        <div className="flex justify-between items-center space-x-10">
-          <div className="flex justify-start items-center space-x-10">
-            <h1 className="text-3xl font-semibold text-gray-600">
+      <div className="px-4 lg:px-24 mt-20">
+        <div className="flex flex-col lg:flex-row justify-between items-center space-x-0 lg:space-x-10">
+          <div className="flex flex-col lg:flex-row justify-start items-center space-x-0 lg:space-x-10 mb-4 lg:mb-0">
+            <h1 className="text-2xl lg:text-3xl font-semibold text-gray-600">
               Daily Best Sells
             </h1>
-            <div className="flex justify-center items-center space-x-10 text-gray-800">
-              {['All', 'Featured', 'Popular', 'New'].map((filter) => (
+            <div className="flex justify-center items-center space-x-10 py-2 lg:py-0 text-gray-800">
+              {["All", "Featured", "Popular", "New"].map((filter) => (
                 <div
                   key={filter}
                   className={`cursor-pointer hover:text-gray-900 ${
-                    selectedFilter === filter ? 'text-green-500 font-bold' : ''
+                    selectedFilter === filter ? "text-green-500 font-bold" : ""
                   }`}
                   onClick={() => {
                     setSelectedFilter(filter);
@@ -268,8 +268,8 @@ function BestSells() {
             </div>
           </div>
         </div>
-        <div className="flex justify-between items-center gap-4 mt-10">
-          <div className="grid grid-cols-4 gap-4 ">
+        <div className="2xl:flex 2xl:justify-between 2xl:items-center gap-6">
+          <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-4 mt-10">
             {visibleCategories.map((item) => (
               <div
                 key={item.id}
@@ -285,7 +285,7 @@ function BestSells() {
                   </span>
                 )}
                 {/* Center the image */}
-                <div className="flex justify-center items-center h-40">
+                <div className="flex justify-center items-center sm:h-40">
                   <Image
                     src={item.image}
                     alt={item.name}
@@ -297,7 +297,7 @@ function BestSells() {
                 {/* Keep the rest of the content aligned to the start */}
                 <div className="text-left space-y-1">
                   <p className="text-gray-400 text-sm">{item.category}</p>
-                  <h2 className="text-base font-semibold text-gray-600">
+                  <h2 className="text-sm lg:text-base font-semibold text-gray-600">
                     {item.name}
                   </h2>
                   <p className="text-gray-400 text-sm flex justify-start items-center">
@@ -329,13 +329,17 @@ function BestSells() {
                     <div
                       className="bg-green-500 h-full"
                       style={{
-                        width: `${(item.remainingItems / item.totalItems) * 100}%`,
+                        width: `${
+                          (item.remainingItems / item.totalItems) * 100
+                        }%`,
                       }}
                     ></div>
                     <div
                       className="bg-gray-400 h-full"
                       style={{
-                        width: `${100 - (item.remainingItems / item.totalItems) * 100}%`,
+                        width: `${
+                          100 - (item.remainingItems / item.totalItems) * 100
+                        }%`,
                       }}
                     ></div>
                   </div>
@@ -357,22 +361,21 @@ function BestSells() {
               </div>
             ))}
           </div>
-          <div className="relative">
-            {/* Background Image */}
+          {/* Background and content for promotion */}
+          <div className="relative mt-10">
             <Image
               src={Rectangle12}
               className="absolute inset-0 w-full h-full object-cover"
               alt="Background Image"
             />
-            {/* Semi-transparent Background */}
             <div className="absolute inset-0 bg-pink-100 opacity-90"></div>
-            {/* Content Section */}
-            <div className="relative fle justify-center items-center text-left px-8 gap-1">
-              <div className="my-4 justify-center text-center">
-                <h1 className="text-3xl pt-4 font-bold ">10% off</h1>
-                <p className="py-4 text-gray-700 flex flex-col">
-                  <span>For new member sign up at</span>{' '}
-                  <span> the first time</span>
+            <div className="relative justify-center items-center text-left px-8 gap-1">
+              <div className="my-4 text-center">
+                <h1 className="text-2xl lg:text-3xl font-bold pt-6 ">
+                  10% off
+                </h1>
+                <p className="py-4 text-gray-700">
+                  For new member sign up at the first time
                 </p>
               </div>
               <div className="flex flex-col gap-4">

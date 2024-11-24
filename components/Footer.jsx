@@ -17,8 +17,8 @@ import clock from "../public/Footer_img/clock.png";
 
 function Footer() {
   return (
-    <div className="container mx-auto p-4 px-16">
-      <div className="flex justify-between items-center space-x-32 pb-10 pt-20">
+    <div className="container mx-auto p-4 sm:px-16">
+      <div className="flex flex-col md:flex-row justify-between items-center space-y-10 md:space-y-0 md:space-x-32 pb-10 pt-20">
         <div className="flex justify-center items-center gap-4">
           <Image src={$} alt="money" />
           <div>
@@ -48,7 +48,7 @@ function Footer() {
         </div>
       </div>
       <div className="border-t border-gray-300 my-4" />
-      <div className="flex flex-col md:flex-row justify-between items-start pt-8">
+      <div className="flex flex-col md:flex-row justify-between items-start pt-8 space-y-10 md:space-y-0">
         <div className="space-y-4">
           <div className="flex">
             <Image src={Logo} alt="logo" className="mr-2" />
@@ -188,9 +188,11 @@ function Footer() {
         </div>
       </div>
       <div className="border-t border-gray-300 mb-8 mt-12" />
-      <footer className="mt-8 flex justify-between items-center pb-4">
-        <p className="text-gray-500">&copy; 2022, All rights reserved</p>
-        <Image src={Payment} alt="payment" />
+      <footer className="flex flex-col md:flex-row justify-between items-center pb-4">
+        <p className="text-gray-500 text-center md:text-left">
+          &copy; 2022, All rights reserved
+        </p>
+        <Image src={Payment} alt="payment" className="mb-4 md:mb-0" />
         <div className="flex justify-center items-center space-x-5">
           <div className="bg-green-600 p-2 rounded-full">
             <Link href="#" className="text-gray-700 hover:text-green-500">
